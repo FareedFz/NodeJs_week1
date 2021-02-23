@@ -1,0 +1,372 @@
+Create database eid;
+
+create table records(Eid int,Firstname varchar(25),Lastname varchar(20), Dateofjoin date,Department varchar(15),salary int);
+Query OK, 0 rows affected (0.39 sec)
+
+ insert into  records(Eid,Firstname,Lastname, Dateofjoin ,Department,salary) values(12,'shahul','Fareed','2020-03-01','IT',40000),
+    ->  (13,'udhaya','mugesh','2020-03-01','IT',37000),
+    ->  (14,'mugilan','mugi','2020-03-10','HR',63000),
+    ->  (15,'haj','Faizal','2020-03-11','Production',14000),
+    ->  (16,'mari','selvam','2020-03-13','sales',33000),
+    ->  (17,'naresh','kumar','2020-03-14','IT',8000),
+    ->  (18,'hafil','ameer','2020-03-16','Production',50000),
+    ->  (19,'abd','kafoor','2020-03-17','HR',12000),
+    ->  (20,'mhd','thameem','2020-03-26','sales',35000),
+    ->  (21,'arsath','asm','2020-03-29','Production',41000),
+    ->  (22,'vaseem','sultan','2020-04-01','HR',80000),
+    ->  (23,'haiden','mathew','2020-04-10','marketing',20000),
+    ->  (24,'sachin','tendulkar','2020-04-15','IT',30000),
+    ->  (25,'virat','kholi','2020-04-18','sales',70000),
+    ->  (26,'rohit','sharma','2020-04-23','Production',49000),
+    ->  (27,'mani','sankaran','2020-05-27','HR',60000),
+    ->  (28,'deepak','chahar','2020-06-01','marketing',42000),
+    ->  (29,'ragul','dravid','2020-07-01','BPO',50000),
+    ->  (30,'kolaru','karthi','2020-02-12','HealthCare',47000),
+    ->  (31,'kalki','ram','2020-03-01','HR',45000);
+Query OK, 20 rows affected (0.19 sec)
+Records: 20  Duplicates: 0  Warnings: 0
+
+mysql> select*from records;
++------+-----------+-----------+------------+------------+--------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary |
++------+-----------+-----------+------------+------------+--------+
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  63000 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  12000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  80000 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |
+|   27 | mani      | sankaran  | 2020-05-27 | HR         |  60000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |
+|   30 | kolaru    | karthi    | 2020-02-12 | HealthCare |  47000 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  45000 |
++------+-----------+-----------+------------+------------+--------+
+20 rows in set (0.00 sec)
+
+1 Fetch all the records of employees who has joined on of after 12th march 2020
+
+mysql> select * from records where dateofjoin>='2020-03-12';
++------+-----------+-----------+------------+------------+--------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary |
++------+-----------+-----------+------------+------------+--------+
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  12000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  80000 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |
+|   27 | mani      | sankaran  | 2020-05-27 | HR         |  60000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |
++------+-----------+-----------+------------+------------+--------+
+14 rows in set (0.00 sec)
+
+3  select Firstname from records where Department='HR';
++-----------+
+| Firstname |
++-----------+
+| mugilan   |
+| abd       |
+| vaseem    |
+| mani      |
+| kalki     |
++-----------+
+5 rows in set (0.00 sec)
+
+4 
+select * from records order by department asc,Firstname Desc;
++------+-----------+-----------+------------+------------+--------+-------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary | bonus |
++------+-----------+-----------+------------+------------+--------+-------+
+|   34 | murugesh  | sam       | 2016-03-01 | NULL       |   NULL |  NULL |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |  5000 |
+|   30 | anand     | karthi    | 2020-02-12 | HealthCare |  47000 |  4700 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  81000 |  8100 |
+|   27 | ram       | sankaran  | 2020-05-27 | HR         |  61000 |  6100 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  64000 |  6400 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  46000 |  4600 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  13000 |  1300 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |  3700 |
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |  4000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |  3000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |   800 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |  2000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |  4200 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |  4900 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |  1400 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |  5000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |  4100 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |  7000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |  3500 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |  3300 |
++------+-----------+-----------+------------+------------+--------+-------+
+21 rows in set (0.00 sec)
+
+5 
+
+select Firstname,Dateofjoin,salary from records where Department='Production';
++-----------+------------+--------+
+| Firstname | Dateofjoin | salary |
++-----------+------------+--------+
+| haj       | 2020-03-11 |  14000 |
+| hafil     | 2020-03-16 |  50000 |
+| arsath    | 2020-03-29 |  41000 |
+| rohit     | 2020-04-23 |  49000 |
++-----------+------------+--------+
+4 rows in set (0.00 sec)
+
+
+5 
+
+select * from records where Firstname in ('ram','anand');
++------+-----------+----------+------------+------------+--------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary |
++------+-----------+----------+------------+------------+--------+
+|   27 | ram       | sankaran | 2020-05-27 | HR         |  60000 |
+|   30 | anand     | karthi   | 2020-02-12 | HealthCare |  47000 |
++------+-----------+----------+------------+------------+--------+
+2 rows in set (0.00 sec)
+
+6 
+select Firstname,Dateofjoin,salary from records where Department='Production';
++-----------+------------+--------+
+| Firstname | Dateofjoin | salary |
++-----------+------------+--------+
+| haj       | 2020-03-11 |  14000 |
+| hafil     | 2020-03-16 |  50000 |
+| arsath    | 2020-03-29 |  41000 |
+| rohit     | 2020-04-23 |  49000 |
++-----------+------------+--------+
+4 rows in set (0.00 sec)
+
+6 
+select * from records where Department in ('sales','Production');
++------+-----------+----------+------------+------------+--------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary |
++------+-----------+----------+------------+------------+--------+
+|   15 | haj       | Faizal   | 2020-03-11 | Production |  14000 |
+|   16 | mari      | selvam   | 2020-03-13 | sales      |  33000 |
+|   18 | hafil     | ameer    | 2020-03-16 | Production |  50000 |
+|   20 | mhd       | thameem  | 2020-03-26 | sales      |  35000 |
+|   21 | arsath    | asm      | 2020-03-29 | Production |  41000 |
+|   25 | virat     | kholi    | 2020-04-18 | sales      |  70000 |
+|   26 | rohit     | sharma   | 2020-04-23 | Production |  49000 |
++------+-----------+----------+------------+------------+--------+
+7 rows in set (0.00 sec)
+
+
+7 
+
+ select * from records where Department!='sales and Department!=Production';
++------+-----------+-----------+------------+------------+--------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary |
++------+-----------+-----------+------------+------------+--------+
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  63000 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  12000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  80000 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |
+|   27 | ram       | sankaran  | 2020-05-27 | HR         |  60000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |
+|   30 | anand     | karthi    | 2020-02-12 | HealthCare |  47000 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  45000 |
++------+-----------+-----------+------------+------------+--------+
+20 rows in set (0.00 sec)
+
+8 
+ insert into records(Eid,Firstname,Lastname,Dateofjoin) values(34,'murugesh','sam','23-09-2020');
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+mysql> select * from records;
++------+-----------+-----------+------------+------------+--------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary |
++------+-----------+-----------+------------+------------+--------+
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  63000 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  12000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  80000 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |
+|   27 | ram       | sankaran  | 2020-05-27 | HR         |  60000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |
+|   30 | anand     | karthi    | 2020-02-12 | HealthCare |  47000 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  45000 |
+|   34 | murugesh  | sam       | 0000-00-00 | NULL       |   NULL |
++------+-----------+-----------+------------+------------+--------+
+21 rows in set (0.00 sec)
+
+8 
+select * from records where salary>=10000 and salary<=20000;
++------+-----------+----------+------------+------------+--------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary |
++------+-----------+----------+------------+------------+--------+
+|   15 | haj       | Faizal   | 2020-03-11 | Production |  14000 |
+|   19 | abd       | kafoor   | 2020-03-17 | HR         |  12000 |
+|   23 | haiden    | mathew   | 2020-04-10 | marketing  |  20000 |
++------+-----------+----------+------------+------------+--------+
+3 rows in set (0.02 sec)
+
+9 
+select * from records where Department='HR' and salary>25000;
++------+-----------+----------+------------+------------+--------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary |
++------+-----------+----------+------------+------------+--------+
+|   14 | mugilan   | mugi     | 2020-03-10 | HR         |  63000 |
+|   22 | vaseem    | sultan   | 2020-04-01 | HR         |  80000 |
+|   27 | ram       | sankaran | 2020-05-27 | HR         |  60000 |
+|   31 | kalki     | ram      | 2020-03-01 | HR         |  45000 |
++------+-----------+----------+------------+------------+--------+
+4 rows in set (0.00 sec)
+
+10 
+ update records set salary=(salary+1000) where department='HR' ;
+Query OK, 5 rows affected (0.08 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from records where department='HR';
++------+-----------+----------+------------+------------+--------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary |
++------+-----------+----------+------------+------------+--------+
+|   14 | mugilan   | mugi     | 2020-03-10 | HR         |  64000 |
+|   19 | abd       | kafoor   | 2020-03-17 | HR         |  13000 |
+|   22 | vaseem    | sultan   | 2020-04-01 | HR         |  81000 |
+|   27 | ram       | sankaran | 2020-05-27 | HR         |  61000 |
+|   31 | kalki     | ram      | 2020-03-01 | HR         |  46000 |
++------+-----------+----------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+11 
+select * from records order by Department asc,salary desc;
++------+-----------+-----------+------------+------------+--------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary |
++------+-----------+-----------+------------+------------+--------+
+|   34 | murugesh  | sam       | 0000-00-00 | NULL       |   NULL |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |
+|   30 | anand     | karthi    | 2020-02-12 | HealthCare |  47000 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  81000 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  64000 |
+|   27 | ram       | sankaran  | 2020-05-27 | HR         |  61000 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  46000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  13000 |
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |
++------+-----------+-----------+------------+------------+--------+
+21 rows in set (0.00 sec)
+
+12 
+ 
+select department from records group by Department;
++------------+
+| department |
++------------+
+| NULL       |
+| BPO        |
+| HealthCare |
+| HR         |
+| IT         |
+| marketing  |
+| Production |
+| sales      |
++------------+
+8 rows in set (0.00 sec)
+
+
+13 
+ 
+alter table records  add bonus int;
+Query OK, 0 rows affected (0.69 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update records set bonus=(salary/10);
+Query OK, 20 rows affected (0.13 sec)
+Rows matched: 21  Changed: 20  Warnings: 0
+
+mysql> select * from records;
++------+-----------+-----------+------------+------------+--------+-------+
+| Eid  | Firstname | Lastname  | Dateofjoin | Department | salary | bonus |
++------+-----------+-----------+------------+------------+--------+-------+
+|   12 | shahul    | Fareed    | 2020-03-01 | IT         |  40000 |  4000 |
+|   13 | udhaya    | mugesh    | 2020-03-01 | IT         |  37000 |  3700 |
+|   14 | mugilan   | mugi      | 2020-03-10 | HR         |  64000 |  6400 |
+|   15 | haj       | Faizal    | 2020-03-11 | Production |  14000 |  1400 |
+|   16 | mari      | selvam    | 2020-03-13 | sales      |  33000 |  3300 |
+|   17 | naresh    | kumar     | 2020-03-14 | IT         |   8000 |   800 |
+|   18 | hafil     | ameer     | 2020-03-16 | Production |  50000 |  5000 |
+|   19 | abd       | kafoor    | 2020-03-17 | HR         |  13000 |  1300 |
+|   20 | mhd       | thameem   | 2020-03-26 | sales      |  35000 |  3500 |
+|   21 | arsath    | asm       | 2020-03-29 | Production |  41000 |  4100 |
+|   22 | vaseem    | sultan    | 2020-04-01 | HR         |  81000 |  8100 |
+|   23 | haiden    | mathew    | 2020-04-10 | marketing  |  20000 |  2000 |
+|   24 | sachin    | tendulkar | 2020-04-15 | IT         |  30000 |  3000 |
+|   25 | virat     | kholi     | 2020-04-18 | sales      |  70000 |  7000 |
+|   26 | rohit     | sharma    | 2020-04-23 | Production |  49000 |  4900 |
+|   27 | ram       | sankaran  | 2020-05-27 | HR         |  61000 |  6100 |
+|   28 | deepak    | chahar    | 2020-06-01 | marketing  |  42000 |  4200 |
+|   29 | ragul     | dravid    | 2020-07-01 | BPO        |  50000 |  5000 |
+|   30 | anand     | karthi    | 2020-02-12 | HealthCare |  47000 |  4700 |
+|   31 | kalki     | ram       | 2020-03-01 | HR         |  46000 |  4600 |
+|   34 | murugesh  | sam       | 0000-00-00 | NULL       |   NULL |  NULL |
++------+-----------+-----------+------------+------------+--------+-------+
+21 rows in set (0.00 sec)
+
+14 
+
+mysql> select * from records limit 0,5;
++------+-----------+----------+------------+------------+--------+-------+
+| Eid  | Firstname | Lastname | Dateofjoin | Department | salary | bonus |
++------+-----------+----------+------------+------------+--------+-------+
+|   12 | shahul    | Fareed   | 2020-03-01 | IT         |  40000 |  4000 |
+|   13 | udhaya    | mugesh   | 2020-03-01 | IT         |  37000 |  3700 |
+|   14 | mugilan   | mugi     | 2020-03-10 | HR         |  64000 |  6400 |
+|   15 | haj       | Faizal   | 2020-03-11 | Production |  14000 |  1400 |
+|   16 | mari      | selvam   | 2020-03-13 | sales      |  33000 |  3300 |
++------+-----------+----------+------------+------------+--------+-------+
+5 rows in set (0.00 sec)
+ 
